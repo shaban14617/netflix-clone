@@ -12,4 +12,5 @@
 
 - React for building the user interface.
 - React Router for managing navigation.
+- React Router for managing navigation.
 - # Styled Components for styling and theming.
