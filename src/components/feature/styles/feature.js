@@ -15,7 +15,7 @@ export const Title = styled.h1`
   font-weight: 500;
   margin: auto;
 
-  @media (max-width: 600) {
+  @media (max-width: 600px) {
     font-size: 35px;
   }
 `;
@@ -26,7 +26,7 @@ export const Subtitle = styled.h2`
   font-weight: normal;
   margin: 16px auto;
 
-  @media (max-width: 600) {
+  @media (max-width: 600px) {
     font-size: 18px;
   }
 `;

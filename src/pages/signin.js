@@ -5,6 +5,7 @@ import { useState, useContext } from "react";
 import { FirebaseContext } from "../context/firebase";
 import * as ROUTES from "../constants/routes";
 import { useHistory } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Signin() {
   const { firebase } = useContext(FirebaseContext);
@@ -18,9 +19,10 @@ export default function Signin() {
   const handleSignin = (event) => {
     event.preventDefault();
 
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(emailAddress, password)
+    // Use the getAuth function directly on the firebase object
+    const auth = getAuth(firebase);
+
+    signInWithEmailAndPassword(auth, emailAddress, password)
       .then(() => {
         // Push to the browse page
         history.push(ROUTES.BROWSE);
@@ -29,14 +31,12 @@ export default function Signin() {
         setEmailAddress("");
         setPassword("");
 
-        let errorMessage = "Invalid email or password credentials";
+        setError("Invalid email or password");
         if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-          errorMessage = "Invalid email or password. Please try again.";
+          setError("Invalid email or password. Please try again.");
         } else {
-          errorMessage = error.message;
+          // setError(error.message);
         }
-
-        setError(errorMessage);
       });
   };
 
