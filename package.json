@@ -12,14 +12,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "3.4.0",
     "styled-components": "^6.1.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,8 +40,38 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.js",
+      "!<rootDir>/src/app.js",
+      "!<rootDir>/src/helpers/routes.js",
+      "!<rootDir>/src/lib/firebase.js",
+      "!<rootDir>/src/lib/firebase.prod.js",
+      "!<rootDir>/src/index.js",
+      "!<rootDir>/src/seed.js",
+      "!<rootDir>/src/utils/index.js",
+      "!<rootDir>/src/pages/index.js",
+      "!<rootDir>/src/global-styles.js",
+      "!<rootDir>/src/components/index.js",
+      "!<rootDir>/src/firebase.prod.js",
+      "!<rootDir>/src/hooks/*.js",
+      "!<rootDir>/src/context/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
+  },
   "devDependencies": {
     "eslint-plugin-react-refresh": "^0.4.5",
-     "@babel/plugin-proposal-private-property-in-object": "^1.0.0"
+    "@babel/plugin-proposal-private-property-in-object": "^1.0.0"
   }
 }

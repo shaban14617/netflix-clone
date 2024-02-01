@@ -7,7 +7,7 @@ export const Background = styled.div`
   background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg")});
 
   @media (max-width: 1100px) {
-    ${({ dontShowOnSmaillViewPort }) => dontShowOnSmaillViewPort && `background : none;`}
+    ${({ dontshow }) => dontshow && "background: none;"}
   }
 `;
 export const Link = styled.p`
