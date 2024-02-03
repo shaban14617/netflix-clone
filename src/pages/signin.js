@@ -23,20 +23,16 @@ export default function Signin() {
     const auth = getAuth(firebase);
 
     signInWithEmailAndPassword(auth, emailAddress, password)
-      .then(() => {
-        // Push to the browse page
+      .then((useCredentials) => {
+        const user = useCredentials.user;
         history.push(ROUTES.BROWSE);
+        console.log(user);
       })
       .catch((error) => {
         setEmailAddress("");
         setPassword("");
-
-        setError("Invalid email or password");
-        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-          setError("Invalid email or password. Please try again.");
-        } else {
-          // setError(error.message);
-        }
+        setError(error.code);
+        console.log(error);
       });
   };
 

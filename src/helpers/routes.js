@@ -1,5 +1,4 @@
 import { Route, Router, Routes, Redirect } from "react-router-dom";
-
 export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
   return (
     <Route
@@ -9,7 +8,6 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
           return children;
         }
         if (user) {
-          console.log("iam user", loggedInPath);
           return <Redirect to={{ pathname: loggedInPath }} />;
         }
 
