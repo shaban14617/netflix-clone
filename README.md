@@ -1,9 +1,5 @@
 # Neflix clone
-## Hosting 
-### technecal problem with signup
-https://netflix-demo-4b6cb.web.app/
-email : test@gmail.com
-password : Test123?
+
 
 # Features
 
